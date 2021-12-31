@@ -7,7 +7,7 @@
     <title>HTML 연습</title>
 </head>
 <!-- body : WebBrowser에 보이는 content 영역 -->
-<body>
+<body background="img/b0052053_4a9645141c55f.png">
     <h4>h1~h6 표제 크기</h4>
     <p>단락(paragraph)를 나타냄
 
@@ -36,6 +36,24 @@
         "&"를 사용하면 entity사용 가능 (VScode의 자동완성을 이용하자)
         &lt;&amp;&nbsp;&gt;<br>
         a&#768;&cent;&copy;
+    </p>
+    <p>
+        <h3 style="background-color:darkslategrey;">sytle 이용 배경색</h3>
+        <h3 style="color: maroon;">style 이용 글자색</h3>
+        <h3 style="color: maroon; font-size: 150%;text-align: center;">style 이용 한번에 스타일링</h3>
+        <a href="https://github.com/jimi008285/PracticeFrontEnd">
+            <h2>github 링크</h2>
+        </a>
+        <!-- target 속성값 내일하기-->
+        <h2><a href="https://github.com/jimi008285/PracticeFrontEnd" target="_blank">blank</a></h2>
+        <h2><a href="https://github.com/jimi008285/PracticeFrontEnd" target="_self">self</a></h2>
+        <h2><a href="https://github.com/jimi008285/PracticeFrontEnd" target="_parent">parent</a></h2>
+        <h2><a href="https://github.com/jimi008285/PracticeFrontEnd" target="_top">top</a></h2>
+        <h2><a href="https://github.com/jimi008285/PracticeFrontEnd" target="myframe">myframe</a></h2>
+    </p>
+ 
+
+<iframe name="myframe" style="width:50%; height: 330px"></iframe>
     </p>
 </body>
 </html>
