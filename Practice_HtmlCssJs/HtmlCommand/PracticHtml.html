@@ -5,9 +5,26 @@
 <head>
     <meta charset="UTF-8">
     <title>HTML 연습</title>
+    <!-- CSS -->
+    <style>
+        /* 링크의 상태 */
+        a:link    { color: teal; }
+        a:visited { color: maroon; text-decoration: none }
+        a:hover   { color: yellow; text-decoration: none }
+        a:active  { color: red; text-decoration: none }
+        /* 이미지 테두리 */
+        img{border: solid 2px white;}
+        /* 테이블 테두리 */
+        table,th,td{
+            border: solid 1px black;
+            border-collapse: collapse; /* 테두리 한줄만 */
+        }
+    </style>
 </head>
 <!-- body : WebBrowser에 보이는 content 영역 -->
-<body background="img/b0052053_4a9645141c55f.png">
+<body <!--background="img/b0052053_4a9645141c55f.png"-->>
+    <!-- #링크를 사용해 위치로 이동 -->
+    <a href="#bookmark"><p>github 링크로 이동</p></a>
     <h4>h1~h6 표제 크기</h4>
     <p>단락(paragraph)를 나타냄
 
@@ -41,19 +58,116 @@
         <h3 style="background-color:darkslategrey;">sytle 이용 배경색</h3>
         <h3 style="color: maroon;">style 이용 글자색</h3>
         <h3 style="color: maroon; font-size: 150%;text-align: center;">style 이용 한번에 스타일링</h3>
-        <a href="https://github.com/jimi008285/PracticeFrontEnd">
+        <a href="https://github.com/jimi008285/PracticeFrontEnd" name="bookmark"><!-- name지정으로 #을 이용해 이곳으로 이동 -->
             <h2>github 링크</h2>
         </a>
-        <!-- target 속성값 내일하기-->
-        <h2><a href="https://github.com/jimi008285/PracticeFrontEnd" target="_blank">blank</a></h2>
-        <h2><a href="https://github.com/jimi008285/PracticeFrontEnd" target="_self">self</a></h2>
-        <h2><a href="https://github.com/jimi008285/PracticeFrontEnd" target="_parent">parent</a></h2>
-        <h2><a href="https://github.com/jimi008285/PracticeFrontEnd" target="_top">top</a></h2>
-        <h2><a href="https://github.com/jimi008285/PracticeFrontEnd" target="myframe">myframe</a></h2>
     </p>
- 
-
-<iframe name="myframe" style="width:50%; height: 330px"></iframe>
-    </p>
+    <!-- target 속성값 내일하기-->
+    <a href="https://github.com/jimi008285/PracticeFrontEnd" target="_blank">blank</a>
+    <h2><a href="https://github.com/jimi008285/PracticeFrontEnd" target="_self">self</a></h2>
+    <h2><a href="https://github.com/jimi008285/PracticeFrontEnd" target="_parent">parent</a></h2>
+    <h2><a href="https://github.com/jimi008285/PracticeFrontEnd" target="_top">top</a></h2>
+    <h2><a href="https://github.com/jimi008285/PracticeFrontEnd" target="myframe">myframe</a></h2>
+    <iframe name="myframe" style="width:50%; height: 330px"></iframe>
+    <h2><a href="https://github.com/jimi008285/PracticeFrontEnd">style 테스트</a></h2>
+    <!-- 이미지 맵(이미지안에 링크 만들기) -->
+    <img src="img/b0052053_4a9645141c55f.png" alt="혀를 눌러봐요" usemap="#Tongue" style="width: 300px; height: 300px;">
+    <map name="Tongue">
+        <area shape="rect" coords="150,160,190,200" alt="혀누르면 깃허브로"
+        href="https://github.com/jimi008285/PracticeFrontEnd" target="_blank">
+    </map>
+    <h3>HTML리스트</h3>
+    <h4>순서없는 리스트(unordered list)</h4>
+    <ul style="list-style-type: square;">
+        <li>apple</li>
+        <li>melon</li>
+        <li>banana</li>
+    </ul>|
+    <h4>순서있는 리스트(ordered  list)</h4>
+    <ol style="list-style-type: square;">
+        <li>apple</li>
+        <li>melon</li>
+        <li>banana</li>
+    </ol>
+    <h4>정의 리스트(definition  list)</h4>
+    <dl style="list-style-type: square;">
+        <dt>apple</dt>
+        <dd>사과에 나는 열맬</dd>
+        <dt>melon</dt>
+        <dd>색목인 수박</dd>
+        <dt>banana</dt>
+        <dd>몸에 참 좋은데 모라고 설명해야하나...</dd>
+    </dl>
+    <table style="width: 100%;">
+        <tr style="background-color: aquamarine;">
+            <th>참치</th>
+            <th>고래</th>
+        </tr>
+        <tr>
+            <td>상어</td>
+            <td>문어</td>    
+        </tr>
+        <tr>
+            <td>오징어</td>
+            <td>고등어</td>
+        </tr>
+    </table><br>
+    <!-- 테이블 열합치기 -->
+    <table style="width:100%">
+        <tr>
+            <td>참치</td>
+            <td colspan="2">고래</td>        
+        </tr>
+        <tr>
+            <td>상어</td>
+            <td>문어</td>        
+            <td>꽁치</td>
+        </tr>
+    </table><br>
+    <!-- 테이블 행합치기 -->
+    <table style="width:100%">
+        <tr>
+            <td rowspan="2">상어</td>
+            <td>문어</td>        
+            <td>꽁치</td>
+        </tr>
+        <tr>
+            <td>고등어</td>        
+            <td>돌고래</td>
+        </tr>
+    </table><br>
+    <!-- 열과 행합치기 -->
+    <table style="width:100%">
+        <tr>
+            <td colspan="6">1</td>
+        </tr>
+        <tr>
+            <td colspan="6">2</td>
+        </tr>
+        <tr>
+            <td rowspan="3">3</td>
+            <td rowspan="3">4</td>
+            <td colspan="2">5</td>
+            <td>6</td>
+            <td>7</td>
+        </tr>
+            <tr>
+            <td colspan="3">8</td>
+            <td>9</td>
+        </tr>
+        <tr>
+            <td colspan="4">10</td>
+        </tr>
+    </table><br>
+    <!-- 테이블 캡션달기 -->
+    <table style="width:100%">
+        <!-- caption-side로 상하위치를 잡고 text-align로 좌우위치를 잡음 -->
+        <caption style="caption-side: top; text-align: left;">해양 생물</caption> 
+        <tr>
+            <td>참치</td>
+            <td>고래</td>
+            <td>날치</td>    
+        </tr>
+    </table>
 </body>
 </html>
