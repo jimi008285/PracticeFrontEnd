@@ -229,5 +229,45 @@
 	<footer>
 		<h2>FOOTER 영역</h2>
 	</footer>
+    <form action="/HtmlCommand/FromTest.html" method="get">
+        검색할 내용을 입력하세요 : <input type="text" name="search"><br>
+        <input type="checkbox" name="lecture" value="html" checked> HTML <br>
+        <input type="checkbox" name="lecture" value="css"> CSS <br>
+        <input type="checkbox" name="lecture" value="java"> JAVA <br>
+        <input type="checkbox" name="lecture" value="cpp" disabled> C++
+        <input type="radio" name="lecture" value="html" checked> HTML <br>
+        <input type="radio" name="lecture" value="css"> CSS <br>
+        <input type="radio" name="lecture" value="java"> JAVA <br>
+        <input type="radio" name="lecture" value="cpp"> C++<br>
+        <input type="file" name="upload_file" accept="image/*">
+        <input type="submit" value="전송">
+    </form>
+    <!-- 콤보박스 -->
+    <select name="fruit">
+        <option value="apple"> 사과
+        <option value="orange" selected> 귤
+        <option value="strawberry"> 딸기
+        <option value="peach"> 복숭아
+    </select><br>
+    <button type="button" onclick="alert('버튼클릭!!!!')">
+        press button
+    </button>
+    <form action="/HtmlCommand/FromTest.html" method="get">
+        <fieldset>
+            <legend>입력 양식</legend>
+            이름 : <br>
+            <input type="text" name="username"><br>
+            이메일 : <br>
+            <input type="text" name="email"><br><br>
+            <input type="submit" value="전송">
+        </fieldset>
+    </form>
+    <form>
+        이름 : <br><input type="text" name="student_name" value="홍길동" maxlength="2"><br>
+        학번 : <br><input type="text" name="student_id"><br>
+        학과 : <br><input type="text" name="department" value="컴퓨터공학과" readonly><br>
+        학과(비활성화) : <br><input type="text" name="department" value="컴퓨터공학과" disabled><br>
+    </form>
+    <time>20220103</time>
 </body>
 </html>
