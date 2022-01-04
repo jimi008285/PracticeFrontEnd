@@ -269,5 +269,96 @@
         학과(비활성화) : <br><input type="text" name="department" value="컴퓨터공학과" disabled><br>
     </form>
     <time>20220103</time>
+    <canvas id="drawCanvas" style="width: 300px; height: 200px; border: 1px solid #993300;">
+        이 문장은 사용자의 웹 브라우저가 cnvas요소를 지원하지 않을 때 나타납니다
+    </canvas>
+    <script>
+        var paper = document.getElementById("drawCanvas");
+        var context = paper.getContext("2d");
+        context.strokeRect(10, 10, 250, 130);
+        context.fillStyle="rgba(255,0,0,1)";
+        context.fillRect(20,20,200,100);
+
+        context.clearRect(30,30,150,50);
+    </script>
+    <h1>canvas 요소에 사각형 그리기</h1>
+
+	<p>
+		가장 바깥쪽에 strokeRect() 함수를 사용하여 선만으로 이루어진 사각형을 그립니다.<br>
+		그 다음에는 fillRect() 함수를 사용하여 빨간색으로 채워진 사각형을 그립니다.<br>
+		가장 안쪽에는 clearRect() 함수를 사용하여 사각형 모양으로 안의 내용을 지워줍니다.
+	</p>
+    <canvas id="drawCanvas2" width="300px" height="200px" style="border: 1px solid #993300">
+		이 문장은 사용자의 웹 브라우저가 canvas 요소를 지원하지 않을 때 나타납니다!
+	</canvas>
+    <script>
+        var paper2 = document.getElementById("drawCanvas2");
+		var context2 = paper2.getContext("2d");
+
+        context2.moveTo(0, 0);
+        context2.lineTo(300, 100);
+		context2.lineTo(0, 200);
+        context.lineTo(0, 0);
+        // 색칠
+        context2.fillStyle = "#0099FF";
+		context2.fill();
+        context2.stroke();
+    </script>
+    <br>
+    <canvas id="drawCanvas3" width="300px" height="200px" style="border: 1px solid #993300">
+        안나오면 이문장이 나옴 원그리기
+    </canvas>
+    <script>
+        var paper3 = document.getElementById("drawCanvas3");
+		var context3 = paper3.getContext("2d");
+
+        context3.beginPath();
+        context3.moveTo(100, 100);
+        context3.arc(100, 100, 120, 0, 45 * Math.PI / 180);
+        context3.closePath();
+        context3.fillStyle = "#FFCC00";
+		context3.fill();
+        context3.stroke();
+    </script>
+    <br>
+    <canvas id="drawCanvas4" width="300px" height="200px" style="border: 1px solid #993300">
+        안나오면 이문장이 나옴 텍스트그리기
+    </canvas>
+    <script>
+        var paper4 = document.getElementById("drawCanvas4");
+		var context4 = paper4.getContext("2d");
+        // 원형 gradient 배경그리기(텍스트보다 위로 올라와야 함)
+        var gradient2 = context.createRadialGradient(100,100,200,150,150,30);
+
+        gradient2.addColorStop(0, "black");
+        gradient2.addColorStop(1, "white");
+
+        context4.fillStyle = gradient2;
+        context4.fillRect(0,0,300,300);
+        // gradient 그리기
+        var gradient = context4.createLinearGradient(0, 0, 200, 0);
+        gradient.addColorStop(0, "#FFCC00");
+        gradient.addColorStop(1, "#FFCCCC");
+        // 폰트 그리기
+        context4.fillStyle = gradient;
+        context4.font = "45px Arial black";
+        // 색이 채워진 텍스트에만 gradient 적용
+        context4.fillText("CANVAS",50,90);
+        context4.strokeText("HTML5",50,150);
+    </script>
+    <br>
+    <img id="myDraw" src="/HtmlCommand/img/b0052053_4a9645141c55f.png" hidden>
+    <canvas id="drawCanvas5" width="320px" height="320px" style="border: 1px solid #993300">
+        안나오면 이문자잉 나옴 이미지 그리기
+    </canvas>
+    <p><button onclick="drawImg()">이미지 그리기</button></p>
+    <script>
+        function drawImg(){
+            var paper5 = document.getElementById("drawCanvas5");
+            var context5 = paper5.getContext("2d");
+            var img = document.getElementById("myDraw");
+            context5.drawImage(img,10,10);
+        }
+    </script>
 </body>
 </html>
