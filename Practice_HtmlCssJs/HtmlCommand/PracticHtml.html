@@ -360,5 +360,101 @@
             context5.drawImage(img,10,10);
         }
     </script>
+    <!-- svg 사각형 -->
+    <svg width="200" height="150">
+        <rect width="200" height="150" stroke="orange" stroke-width="5" fill="yellow" opacity="0.5"/>
+    </svg>
+    <svg width="200" height="150">
+        <rect width="200" height="150" style="stroke:orange; stroke-width:5; fill:yellow; opacity:1;"/>
+    </svg>
+    <!-- svg 사각형 r값 적용 -->
+    <svg width="250" height="200">
+        <rect width="200" height="150" x="30" y="30" rx="20" ry="20" stroke="orange" stroke-width="5" fill="yellow"/>
+    </svg>
+    <!-- line 그리기 -->
+    <svg width="250" height="200">
+        <line x1="20" y1="20" x2="230" y2="180" stroke="red" stroke-width="3"/>
+    </svg><br>
+    <!-- 원 그리기 -->
+    <svg width="250" height="200">
+        <circle cx="125" cy="100" r="50" stroke="red" stroke-width="3" fill="orange"/>
+    </svg>
+    <!-- 타원 그리기 -->
+    <svg width="250" height="200">
+        <ellipse cx="125" cy="100" rx="120" ry="70" stroke="orange" stroke-width="5" fill="yellow"/>
+    </svg>
+    <!-- 다각형 그리기 -->
+    <svg width="300" height="300">
+        <polygon points="10,100 190,100 30,200 100,40 170,200" stroke="orange" stroke-width="5" fill="yellow"/>
+    </svg>
+    <!-- geolocation 사용 및 오류처리 -->
+    <h1>geolocation에서의 오류 처리</h1>
+
+	<button onclick="findLocation()">현재 위치의 위도와 경도</button>
+    <!-- 구글맵 표현(하지만 맵이 깨져서 나옴) -->
+    <!-- <div id="mapLocation"></div> -->
+	<p id="myLocation"></p>
+
+	<script>
+		var loc = document.getElementById("myLocation");
+		function findLocation() {
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(showYourLocation, showErrorMsg);
+			} else { 
+				loc.innerHTML = "이 문장은 사용자의 웹 브라우저가 Geolocation API를 지원하지 않을 때 나타납니다!";
+			}
+		}
+
+		function showYourLocation(position) {
+			loc.innerHTML = "현재 사용자는 위도 " + position.coords.latitude + ", 경도 " + position.coords.longitude + "에 위치하고 있습니다.";	
+            // 구글 맵 좌표와 지도표현
+            // var userLat = position.coords.latitude;
+			// var userLng = position.coords.longitude;
+			// var imgUrl = "http://maps.googleapis.com/maps/api/staticmap?center=" + userLat + "," + userLng + "&zoom=15&size=500x400&sensor=false";
+			// document.getElementById("mapLocation").innerHTML = "<img src='"+imgUrl+"'>";
+		}
+
+		function showErrorMsg(error) {
+			switch(error.code) {
+				case error.PERMISSION_DENIED:
+				loc.innerHTML = "이 문장은 사용자가 Geolocation API의 사용 요청을 거부했을 때 나타납니다!"
+				break;
+				case error.POSITION_UNAVAILABLE:
+				loc.innerHTML = "이 문장은 가져온 위치 정보를 사용할 수 없을 때 나타납니다!"
+				break;
+				case error.TIMEOUT:
+				loc.innerHTML = "이 문장은 위치 정보를 가져오기 위한 요청이 허용 시간을 초과했을 때 나타납니다!"
+				break;
+				case error.UNKNOWN_ERROR:
+				loc.innerHTML = "이 문장은 알 수 없는 오류가 발생했을 때 나타납니다!"
+				break;
+			}
+		}
+	</script>
+    <!-- Drag and Drop -->
+    <h1>드래그 앤 드롭을 이용한 객체의 이동</h1>
+
+	<p>모나리자 그림을 드래그해서 옆의 사각형으로 옮겨보세요!</p>
+
+	<div ondrop="drop(event)" ondragover="dragEnter(event)" style="width: 305px; height: 305px; margin: 5px; padding: 5px; border: solid 1px; float: left;">
+		<img id="monalisa" width="300" height="300" src="/HtmlCommand/img/b0052053_4a9645141c55f.png" draggable="true" ondragstart="drag(event)">
+	</div>
+	<div ondrop="drop(event)" ondragover="dragEnter(event)" style="width: 305px; height: 305px; margin: 5px; padding: 5px; border: solid 1px; float: left;"></div>
+
+	<script>
+		function dragEnter(ev) {
+			ev.preventDefault();
+		}
+
+		function drag(ev) {
+			ev.dataTransfer.setData("text", ev.target.id);
+		}
+
+		function drop(ev) {
+			ev.preventDefault();
+			var data = ev.dataTransfer.getData("text");
+			ev.target.appendChild(document.getElementById(data));
+		}
+	</script>
 </body>
 </html>
