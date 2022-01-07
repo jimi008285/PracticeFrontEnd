@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>PracticeCSS</title>
     <style>
-        /* 버튼 스타일 */
+        /* 링크버튼 스타일 */
         a:link, a:visited {
 			background-color: #FFA500; /* 버튼 배경색 */
 			color: blue;
@@ -14,10 +14,67 @@
 			display: inline-block;
 		}
 		a:hover, a:active { background-color: #FF4500; }
+        /*  리스트  */
+        .listCircle{list-style-type:circle;}
+        .listSquare{list-style-type:squred;}
+        .listUpperAlpah{list-style-type:upper-alpah;}
+        .listRoman{list-style-type:lower-roman;}
+        /* 이미지 리스트 */
+        .imgMarker{
+            list-style: square inside;
+            list-style-image:url(/img/b0052053_4a9645141c55f.png);
+        }
+        /* position */
+        .outside { list-style-position: outside; }
+		.inside { list-style-position: inside; }
     </style>
 </head>
 <body>
     <h1>링크를 활용한 버튼</h1>
     <p><a href="#" target="_blank">가즈아아아아!!</a></p>
+    
+    <h1>list-style-type 속성을 이용한 마커의 변경</h1>
+	<ul class="circle">
+		<li>사과</li>
+		<li>멜론</li>
+		<li>바나나</li>
+	</ul>
+	<ul class="square">
+		<li>수박</li>
+		<li>참외</li>
+		<li>옥수수</li>
+	</ul>
+	<ol class="upperAlpha">
+		<li>감자</li>
+		<li>상추</li>
+		<li>고구마</li>
+	</ol>
+	<ol class="lowerRoman">
+		<li>오이</li>
+		<li>배추</li>
+		<li>시금치</li>
+	</ol>
+    
+    <h1>list-style-image 속성을 이용한 마커의 변경</h1>
+	<ul class="imgMarker">
+		<li>사과</li>
+		<li>멜론</li>
+		<li>바나나</li>
+	</ul>
+
+    <h1>list-style-position 속성을 이용한 리스트 요소의 위치 설정</h1>
+	<p>defult and outside</p>
+	<ul class="outside">
+		<li>사과</li>
+		<li>멜론</li>
+		<li>바나나</li>
+	</ul>
+	<br>
+	<p>list inside</p>
+	<ul class="inside">
+		<li>수박</li>
+		<li>참외</li>
+		<li>옥수수</li>
+	</ul>
 </body>
 </html>
