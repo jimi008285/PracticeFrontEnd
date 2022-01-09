@@ -118,7 +118,7 @@
 	</div>
 
 	<h1>margin 속성값 auto를 이용한 수평 정렬</h1>
-	<div>margin 속성값을 auto로 설정한 요소입니다.</div>
+	<div class="automargin">margin 속성값을 auto로 설정한 요소입니다.</div>
 
 	<h1>outline-style 속성을 이용한 외곽선의 모양 변경</h1>
 	<p class="dotted">outline-style 속성값을 dotted로 한 단락입니다.</p>
@@ -142,5 +142,108 @@
 	<p class="good">outline-style 속성을 설정한 단락입니다.</p>
 	<p class="wrong">outline-style 속성을 설정하지 않은 단락입니다.</p>
 	<p class="none">외곽선의 축약 표현시에는 반드시 outline-style 속성이 먼저 설정되어 있어야 제대로 표현됩니다!</p>
+	
+	<!-- Display -->
+	<h1>다양한 display 속성값</h1>
+
+	<p>아래에 나오는 div 요소는 모두 display 속성값이 블록입니다.</p>
+	<div class="first">블록</div>
+	<div class="second">블록</div>
+	<div class="third">블록</div><br>
+
+	<p>아래에 나오는 div 요소는 모두 display 속성값이 인라인입니다.</p>
+	<div class="first inline">인라인</div>
+	<div class="second inline">인라인</div>
+	<div class="third inline">인라인</div><br><br>
+
+	<p>아래에 나오는 div 요소는 모두 display 속성값이 인라인-블록입니다.</p>
+	<div class="first inline-block">인라인-블록</div>
+	<div class="second inline-block">인라인-블록</div>
+	<div class="third inline-block">인라인-블록</div>
+
+	<h1>이미지 투명화</h1>
+	<img src="/img/b0052053_4a9645141c55f.png" width="300" height="300" alt="character">
+	<p>opacity 속성값을 조절하면 간단히 이미지를 투명하게 만들 수 있어요!</p>
+
+	<h1>정적 위치(static position) 지정 방식의 특징</h1>
+	<div class="container">
+		<div class="static position">정적 위치(static position)</div>
+		<div class="relative position">상대 위치(relative position)</div>
+		<div class="fixed position">고정 위치(fixed position)</div>
+		<div class="absolute position">절대 위치(absolute position)</div>
+	</div>
+
+	<h1>z-index 속성을 이용한 노출 순서 변경</h1>
+	<div>
+		<div class="static2 position2">정적 위치(static position)</div>
+		<div class="first2 position2">고정 위치(fixed position)</div>
+	</div>
+	<br><br>
+	<div>
+		<div class="static2 position2">정적 위치(static position)</div>
+		<div class="last position2">고정 위치(fixed position)</div>
+	</div>
+
+	<h1>float 속성을 이용한 위치 설정</h1>
+	<p class="text"><img src="/img/b0052053_4a9645141c55f.png" alt="character" class="float" width="300" height="300">
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+		Nam ornare sapien suscipit tincidunt ullamcorper. 
+		Cras ac sem sed mauris maximus rhoncus vel in metus. 
+		Nam pharetra arcu sit amet dolor interdum, 
+		eget scelerisque libero finibus. Phasellus quis vulputate ante. 
+		Fusce sit amet viverra justo. Donec id elementum mauris. 
+		Nam id porttitor nisl, et suscipit nunc. Vestibulum sit amet volutpat quam. 
+		um sociis natoque penatibus et magnis dis parturient montes, 
+		nascetur ridiculus mus. Duis placerat sem eu facilisis ultricies.
+		Nulla et elit placerat, malesuada massa sit amet, dictum quam. 
+		Duis eu turpis non sapien molestie luctus nec a tortor. 
+		Nunc non est eget elit suscipit interdum. 
+		Maecenas iaculis lobortis lorem et dignissim. Nullam dapibus, 
+		arcu vel malesuada egestas, nisi mi accumsan tellus, 
+		at rhoncus dolor nisi in tortor. Donec at aliquam lectus, 
+		ac egestas odio. Proin convallis sapien id consectetur egestas. 
+		Sed at varius libero, ut ultricies eros. Suspendisse potenti. 
+		Vivamus non posuere mauris. Maecenas luctus elementum justo, 
+		non tempor nisl blandit id. Lorem ipsum dolor sit amet, 
+		consectetur adipiscing elit.
+	</p>
+
+	<h1>clear 속성을 이용한 위치 조정</h1>
+	<div>
+		<div class="leftC">왼쪽 끝에 위치하고 싶은 요소</div>
+		<div class="rightC">오른쪽 끝에 위치하고 싶은 요소</div>
+	</div>
+	<p class="clear">이 글자를 아래쪽에 제대로 출력하고 싶어요!</p>
+
+	<h1>overflow 속성을 이용한 크기 조정</h1>
+	<div class="overflow">이미지와 함께 하고 싶은 내용
+		<img src="/img/b0052053_4a9645141c55f.png" alt="flower" width="245" height="185">
+	</div>
+	<p id="second"><br>overflow 속성값을 auto로 주면 자동으로 컨테이너 요소의 크기도 함께 늘어납니다!</p>
+	<div class="good">이미지와 함께 하고 싶은 내용
+		<img src="/img/b0052053_4a9645141c55f.png" alt="flower" width="245" height="185">
+	</div>
+
+	<h1 class="h2">float 속성을 이용한 레이아웃</h1>
+	<div class="page">
+		
+		<header class="header">
+			<h2 class="h2">header 영역</h2>
+		</header>
+		<nav class="nav">
+			<h2 class="h2">nav 영역</h2>
+			<p>여기에는 보통 메뉴가 들어갑니다.</p>
+		</nav>
+		<section class="section">
+			<h2 class="h2">section 영역</h2>
+			<p>여기에는 페이지에 해당하는 내용이 들어갑니다.<br>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ornare sapien suscipit tincidunt ullamcorper. Cras ac sem sed mauris maximus rhoncus vel in metus. Nam pharetra arcu sit amet dolor interdum, eget scelerisque libero finibus. Phasellus quis vulputate ante. Fusce sit amet viverra justo. Donec id elementum mauris. Nam id porttitor nisl, et suscipit nunc. Vestibulum sit amet volutpat quam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis placerat sem eu facilisis ultricies.
+			</p>
+		</section>
+		<footer class="footer">
+			<h2 class="h2">footer 영역</h2>
+		</footer>
+	</div>
+	<!-- selector -->
 </body>
 </html>
