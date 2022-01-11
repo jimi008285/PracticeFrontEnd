@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>링크를 활용한 버튼</h1>
-    <p><a href="#" target="_blank">가즈아아아아!!</a></p>
+    <p><a class="link1" href="#" target="_blank">가즈아아아아!!</a></p>
     
     <h1>list-style-type 속성을 이용한 마커의 변경</h1>
 	<ul class="circle">
@@ -265,5 +265,33 @@
 		비밀번호 : <br>
 		<input type="password" name="password">
 	</form>
+
+	<h1>메뉴 간 경계선 표현</h1>
+	<ul  class="ulist">
+		<li class="list"><a class="nav1" ref="#">Home</a></li>
+		<li class="list"><a class="nav1 current1" href="#">HTML</a></li>
+		<li class="list"><a class="nav1" href="#">CSS</a></li>
+		<li class="list"><a class="nav1" href="#">자바스크립트</a></li>
+	</ul>
+
+	<h1>드롭다운 메뉴</h1>
+	<div class="dropdown">
+		<button class="dropdown-button">Dropdown</button>
+		<div class="dropdown-content">
+			<a href="#">HTML</a>
+			<a href="#">CSS</a>
+			<a href="#">JAVA</a>
+			<a href="#">C++</a>
+		</div>
+	</div>
+
+	<h1>툴팁의 모양 변경</h1>
+	<br><br><br>
+	<div class="tooltip">
+		<span>여기에 마우스를 올려보세요!</span>
+		<div class="tooltip-content">
+			<p>위쪽에 나타나는 툴팁입니다!</p>
+		</div>
+	</div>
 </body>
 </html>
