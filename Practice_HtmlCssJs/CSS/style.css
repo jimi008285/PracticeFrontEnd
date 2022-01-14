@@ -533,3 +533,13 @@ input[type="password"]:focus { background-color: #FFC0CB; }
     -o-border-image: url(/img/img_image_sprites.png) 34 round stretch;
     border-image: url(/img/img_image_sprites.png) 24 round stretch;
 }
+/* 텍스트 */
+#pt_01, #pt_02 {
+    border: 1px solid black;
+    white-space: nowrap; 
+    width: 200px;
+    overflow: hidden;
+}
+#pt_01 { text-overflow: clip; }
+#pt_02 { text-overflow: ellipsis; }
+#pt_01:hover, #pt_02:hover { overflow: visible; }
