@@ -612,3 +612,154 @@ input[type="password"]:focus { background-color: #FFC0CB; }
     -ms-transform: matrix(0.7, 0, 0, 0.7, 0, 0);
     transform: matrix(2, 0.3, 0.2, 1.3, 150, 100);
 }
+/* 3dTransform */
+#trans_01 {
+    background-color: #87CEFA;
+    border: 3px solid red;
+    -webkit-transform: translate(100px, 50px);
+    -ms-transform: translate(100px, 50px);
+    transform: translate(100px, 50px);
+}
+#trans_02 {
+    background-color: #87CEFA;
+    border: 3px solid red;
+    -webkit-transform: perspective(500px) translate3d(100px, 50px, -150px);
+    transform: perspective(500px) translate3d(100px, 50px, -150px);
+}
+/* Transition */
+div.keyboard {
+    background-color: orange;
+    height: 50px;
+    width: 100px;
+    margin: 10px;
+    /* -webkit-transition: width 1s, height 3s; */
+    transition: width 1s, height 1.5s;
+}
+div.keyboard:hover { width: 300px;  height: 100px;}
+/* transition-timing-function */
+.transition {
+    background-color: orange;
+    height: 50px;
+    width: 100px;
+    margin: 10px;
+    text-align: center;
+    line-height: 50px;
+    -webkit-transition: width 1s;
+    transition: width 1s;
+}
+#div_01 {
+    -webkit-transition-timing-function: linear;
+    transition-timing-function: linear;
+}
+#div_02 {
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+}
+#div_03 {
+    -webkit-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
+}
+#div_04 {
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+#div_05 {
+    -webkit-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+}
+.transition:hover {
+    width: 300px;
+}
+/* transition-delay  */
+#resize {
+    background-color: orange;
+    height: 100px;
+    width: 150px;
+    margin: 10px;
+    -webkit-transition: width 1s, height 2s;
+    transition: width 1s, height 2s;
+    -webkit-transition-delay: 1s;
+    transition-delay: 0.5s;
+}
+#resize:hover {
+    width: 300px;
+    height: 300px;
+}
+/* Animation @keyframes */
+#one, #loop {
+    height: 40px;
+    width: 400px;
+    position: relative;
+    border: solid 5px red;
+    -webkit-animation-name: movingPara;
+    -webkit-animation-duration: 4s;
+    animation-name: movingPara;
+    animation-duration: 4s;
+}
+@-webkit-keyframes movingPara {
+    0% { border-color: red; transform: rotateX(0deg); }
+    20% { border-color: orange; }
+    40% { border-color: yellow; }
+    50% { border-color: green; transform: rotateX(180deg); }
+    60% { border-color: blue; }
+    80% { border-color: navy; }
+    100% { border-color: purple; transform: rotateX(360deg); }
+    from { margin-left: 100%; }
+    to { margin-left: 0%; }
+}
+@keyframes movingPara {
+    0% { border-color: red; transform: rotateX(0deg); }
+    20% { border-color: orange; }
+    40% { border-color: yellow; }
+    50% { border-color: green; transform: rotateX(180deg); }
+    60% { border-color: blue; }
+    80% { border-color: navy; }
+    100% { border-color: purple; transform: rotateX(360deg); }
+    from { left: 300px; }
+    to { left: 0px; }
+    /* margin-left로 사용해도 됨 */
+}
+#one {
+    -webkit-animation-iteration-count: 2;
+    animation-iteration-count: 2;
+}
+#loop {
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+/* 애니메이션축약표현 */
+.shorthand {
+    height: 150px;
+    width: 150px;
+    margin: 20px;
+    background-color: orange;
+    border-radius: 150px;
+    line-height: 150px;
+    text-align: center;
+}
+@-webkit-keyframes myShorthand {
+    from { transform: rotate(-45deg); }
+    to { transform: rotate(45deg); }
+}
+@keyframes myShorthand {
+    from { transform: rotate(-45deg); }
+    to { transform: rotate(45deg); }
+}
+#long {
+    -webkit-animation-name: myShorthand;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-delay: 1s;
+    -webkit-animation-iteration-count: 3;
+    -webkit-animation-direction: reverse;
+    animation-name: myShorthand;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 1s;
+    animation-iteration-count: 3;
+    animation-direction: reverse;
+}
+#short {
+    -webkit-animation: myShorthand 3s ease-in-out 1s 3 reverse;
+    animation: myShorthand 3s ease-in-out 1s 3 reverse;
+}
