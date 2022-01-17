@@ -763,3 +763,245 @@ div.keyboard:hover { width: 300px;  height: 100px;}
     -webkit-animation: myShorthand 3s ease-in-out 1s 3 reverse;
     animation: myShorthand 3s ease-in-out 1s 3 reverse;
 }
+/* CSS3 button */
+.btn {
+    background-color: #87CEEB;
+    position: relative;
+    padding: 15px 30px;
+    margin: 10px;
+    border: none;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    display: inline-block;
+    cursor: pointer;
+    overflow: hidden;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+.btn1:hover { 
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 4px 40px 0 rgba(0,0,0,1); 
+    background-color: #4169E1;
+    color: white;
+}
+/* 사용금지버튼 */
+.btn2 {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+/* Animation button */
+.btn3 {
+    background-color: orange;
+    position: relative;
+    height: 70px;
+    width: 150px;
+    padding: 15px 30px;
+    margin: 10px;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    font-size: 22px;
+    cursor: pointer;
+    overflow: hidden;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+.btn3::after {
+    content: "";
+    background-color: #FFD700;
+    display: block;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    padding-top: 200%;
+    padding-left: 300%;
+    margin-left: 0;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s;
+}
+.btn3:active::after {
+    padding: 0px;
+    margin: 0px;
+    opacity: 1;
+    transition: 0s
+}
+/* real button */
+.btn4 {
+    background-color: orange;
+    display: inline-block;
+    height: 70px;
+    width: 150px;
+    padding: 15px 30px;
+    margin: 10px;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 9px #B0B0B0;
+}
+.btn4:hover { background-color: #FF8C00; }
+.btn4:active {
+    background-color: #FF8C00;
+    box-shadow: 0 5px #808080;
+    transform: translateY(4px);
+} 
+/* resize속성을 이용한 크기 조절 */
+.resize {
+    border: 3px solid orange;
+    margin: 10px;
+    padding: 20px;
+    width: 300px;
+    overflow: auto;
+}
+#width { resize: horizontal; }
+#height { resize: vertical; }
+#both { resize: both; }
+/* offset */
+.offset {
+    border: 1px solid black;
+    height: 100px;
+    width: 300px;
+    padding: 20px;
+    margin: 50px;
+    outline: 1px solid red;
+    outline-offset: 20px;
+}
+/* column-count */
+#col {
+    margin: 30px 0;
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+    column-width: 150px;
+}
+/* 타이틀 병합 */
+#merge {
+    -webkit-column-span: all;
+    column-span: all;
+}
+/* 컬럼사이 라인두께 */
+.rule {
+    margin: 30px 0;
+    -webkit-column-count: 4;
+    -moz-column-count: 4;
+    column-count: 4;
+}
+#line {
+    -webkit-column-rule-style: solid;
+    -moz-column-rule-style: solid;
+    column-rule-style: solid;
+    -webkit-column-rule-width: 5px;
+    -moz-column-rule-width: 5px;
+    column-rule-width: 5px;
+    /* 컬럼 라인색상변경 */
+    -webkit-column-rule-color: #6495ED;
+    -moz-column-rule-color: #6495ED;
+    column-rule-color: #6495ED;
+}
+/* flex line */
+#flex {
+    /* ltr | rtl로 좌우정렬 */
+    direction: rtl;
+    background-color: dimgray;
+    width: 400px;
+    height: 150px;
+    border-radius: 15px;
+    display: -webkit-flex;
+    display: flex;
+}
+.item {
+    background-color: darkgray;
+    border-radius: 10px;
+    width: 80px;
+    height: 50px;
+    margin: 10px;
+    color: white;
+    font-size: 26px;
+    text-align: center;
+    line-height: 50px;
+}
+/* flex-direction row 방향 배치 */
+.flexbox {
+    background-color: dimgray;
+    width: 400px;
+    height: 250px;
+    border-radius: 15px;
+    display: -webkit-flex;
+    display: flex;
+}
+#row_reverse {
+    -webkit-flex-direction: row-reverse;
+    /* flex-direction: row-reverse; */
+    /* flex-direction: row; */
+    /* column방향배치 */
+    flex-direction: column;
+    /* flex-direction: column-reverse; */
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: space-around;
+}
+.item {
+    background-color: darkgray;
+    border-radius: 10px;
+    width: 80px;
+    height: 50px;
+    margin: 10px;
+    color: white;
+    font-size: 26px;
+    text-align: center;
+    line-height: 50px;
+}
+#first_order {
+    -webkit-order: -1;
+    order: -1;
+}
+/* align 플렉스 정렬설정 */
+.flexboxalign {
+    background-color: dimgray;
+    width: 500px;
+    height: 300px;
+    border-radius: 15px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+.itemalign {
+    background-color: darkgray;
+    border-radius: 10px;
+    width: 80px;
+    margin: 10px;
+    color: white;
+    font-size: 26px;
+    text-align: center;
+    line-height: 50px;
+}
+.itemalign:nth-child(2) {
+    -webkit-align-self: flex-start;
+    align-self: flex-start;
+}
+.itemalign:nth-child(3) {
+    -webkit-align-self: flex-end;
+    align-self: flex-end;
+}
+.itemalign:nth-child(4) {
+    -webkit-align-self: center;
+    align-self: center;
+}
+.itemalign:nth-child(5) {
+    -webkit-align-self: baseline;
+    align-self: baseline;
+}
+/* media Query */
+.mediaquery { background-color: darkorange; }
+@media screen and (min-width: 800px) {
+    .mediaquery {
+        background-color: lightblue;
+    }
+}
