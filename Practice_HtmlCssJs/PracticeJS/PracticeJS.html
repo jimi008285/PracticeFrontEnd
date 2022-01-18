@@ -3,8 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <title>JavaScript</title>
+    <script src="/js/javascript.js"></script>
 </head>
 <body>
-    
+    <h1>Document 객체의 write() 메소드</h1>
+	<button onclick="document.write(4 * 5)">버튼을 눌러보세요!</button>
+
+    <h1>head 태그 내의 자바스크립트</h1>
+	<p>자바스크립트를 이용하면 현재 날짜와 시간 정보에도 손쉽게 접근할 수 있어요!</p>
+	<button onclick="printDate()">현재 날짜와 시간 표시하기!</button>
+	<p id="date"></p>
+    <!-- boolean 타입 -->
+    <h1>불리언 타입</h1>
+	<p id="bool"></p>
+    <script>
+        var firstNum = 10;
+        var secondNum = 11;
+        document.getElementById("bool").innerHTML = (firstNum == secondNum);
+        /* symbol 사용 */
+    </script>
+    <!-- symbol 타입 -->
+    <h1>심볼 타입</h1>
+	<p id="sym"></p>
+    <script>
+        var sym = Symbol("javascript");		// 심볼 타입
+		var symObj = Object(sym); 			// 객체 타입
+		document.getElementById("sym").innerHTML = 
+			(typeof sym) + "<br>" + (typeof symObj);
+    </script>
+    <!-- object 타입 -->
+    <h1>객체 타입</h1>
+	<p id="obj"></p>
+	<script>
+		var dog = { name: "해피", age: 3 };	// 객체의 생성
+
+		// 객체의 프로퍼티 참조
+		document.getElementById("obj").innerHTML = 
+			"강아지의 이름은 " + dog.name + "이고, 나이는 " + dog.age + "살 입니다.";
+	</script>
+    <!-- 같은 변수에 다른 타입의 값 대입 -->
+    <h1>같은 변수에 다른 타입의 값 대입</h1>
+	<p id="vartype"></p>
+	<script>
+		var num = 20;	// 변수의 선언과 함께 초기화
+		document.getElementById("vartype").innerHTML = num + "<br>";
+		num = "이십";	// 문자열 대입
+		document.getElementById("vartype").innerHTML += num + "<br>";
+		var num;		// 한 변수를 여러 번 초기화할 수는 있으나, 재선언은 할 수 없습니다.
+		document.getElementById("vartype").innerHTML += num;
+	</script>
+    <!-- 묵시적 타입 변환 -->
+    <h1>묵시적 타입 변환</h1>
+	<p id="implicit "></p>
+	<script>
+		var result = 10 + "문자열";	// 문자열 연결을 위해 숫자 10이 문자열로 변환됨.
+		document.getElementById("implicit ").innerHTML = result + "<br>";
+		result = "3" * "5";			// 곱셈 연산을 위해 두 문자열이 모두 숫자로 변환됨.
+		document.getElementById("implicit ").innerHTML += result + "<br>";
+		result = 1 - "문자열";		// NaN
+		document.getElementById("implicit ").innerHTML += result;
+	</script>
+    <!-- 명시적 타입 변환 함수 -->
+    <h1>명시적 타입 변환 함수</h1>
+	<p id="explicit "></p>
+	<script>
+		document.getElementById("explicit ").innerHTML = Number("10") + "<br>";	// 10
+		document.getElementById("explicit ").innerHTML += String(true) + "<br>";	// "true"
+		document.getElementById("explicit ").innerHTML += Boolean(0) + "<br>";		// false
+		document.getElementById("explicit ").innerHTML += Object(3);				// new Number(3)
+	</script>
+    <!-- 날짜를 문자열이나 숫자로 변환 -->
+    <h1>날짜를 문자열이나 숫자로 변환</h1>
+	<p id="parseDate"></p>
+	<script>
+		var result = String(Date());
+		document.getElementById("parseDate").innerHTML = result + "<br>";
+		result = Date().toString();
+		document.getElementById("parseDate").innerHTML += result + "<br>";
+		var date = new Date(); 			// Date 객체 생성
+		result = date.getFullYear();
+		document.getElementById("parseDate").innerHTML += result + "<br>";
+		result = date.getTime();		// 1970년 1월 1일부터 현재까지의 시간을 밀리초 단위의 숫자로 반환함.
+		document.getElementById("parseDate").innerHTML += result;
+	</script>
 </body>
 </html>
