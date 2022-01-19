@@ -86,5 +86,129 @@
 		result = date.getTime();		// 1970년 1월 1일부터 현재까지의 시간을 밀리초 단위의 숫자로 반환함.
 		document.getElementById("parseDate").innerHTML += result;
 	</script>
+	<!-- 비트 연산자 -->
+	<h1>비트 연산자</h1>
+	<script>
+		var x = 15, y = -8, z = 15;
+		document.write((x << 1) + "<br>");	// 곱하기 2
+		document.write((y >> 1) + "<br>");	// 나누기 2
+		document.write((y >>> 1) + "<br>");	// 부호 비트까지도 전부 오른쪽으로 이동됨.
+		document.write(~z);					// 1의 보수
+	</script>
+	<!-- delete 연산자 -->
+	<h1>delete 연산자</h1>
+	<script>
+		var arr = [1, 2, 3];				// 배열 생성
+		delete arr[2];						// 배열의 원소 중 인덱스가 2인 요소를 삭제함.
+		document.write(arr + "<br>");		// [1, 2, ]
+		// 배열에 빈자리가 생긴 것으로 undefined 값으로 직접 설정된 것은 아님.
+		document.write(arr[2] + "<br>");
+		// 배열의 요소를 삭제하는 것이지 배열의 크기까지 줄이는 것은 아님.
+		document.write(arr.length);
+	</script>
+	<!-- for / in -->
+	<h1>for / in 문</h1>
+	<script>
+		var arr = [3, 4, 5];
+
+		for (var i = 0; i < arr.length; i++) { // 배열 arr의 모든 요소의 인덱스(index)를 출력함.
+			document.write(i + " ");
+		}
+		document.write("<br>");
+		for (var i in arr) { // 위와 같은 동작을 하는 for / in 문
+			document.write(i + " " + []);
+		}
+		var obj = {
+			name : "이순신",
+			age : 20
+		};
+		document.write("<br>");
+		for (var i in obj) {
+			document.write(i +", " + obj[i] + "<br>");
+		}
+	</script>
+	<!-- for / of -->
+	<h1>for / of 문</h1>
+	<script>
+		var arr = [3, 4, 5];
+
+		for (var i = 0; i < arr.length; i++) { // 배열 arr의 모든 요소의 인덱스(index)를 출력함.
+			document.write(arr[i] + " ");
+		}
+		document.write("<br>");
+		for (var value of arr) { // 위와 같은 동작을 하는 for / of 문
+			document.write(value + " ");
+		}
+	</script>
+	<!-- for / of (Set) -->
+	<h1>for / of 문(Set)</h1>
+	<script>
+		var arr = new Set([1, 1, 2, 2, 3, 3]);
+
+		for (var value of arr) {
+			document.write(value + " ");
+		}
+	</script>
+	<!-- continue 각단에 홀수만 출력(label사용) -->
+	<h1>continue 문</h1>
+	<script>
+		gugudan: 
+		for (var i = 2; i <= 9; i++) {
+			dan: 
+			for (var j = 1; j <= 9; j++) {
+				if ((i*j) % 2 == 0)
+					continue dan;
+				document.write(i + " * " + j + " = " + (i*j) + "<br>");
+			}
+		}
+	</script>
+	<!-- break 사용 3단까지만 사용(label사용) -->
+	<h1>break 문</h1>
+	<script>
+		gugudan: 
+		for (var i = 2; i <= 9; i++) {
+			dan: 
+			for (var j = 1; j <= 9; j++) {
+				if (i > 3)
+					break gugudan;
+				document.write(i + " * " + j + " = " + (i*j) + "<br>");
+			}
+		}
+	</script>
+	<!-- 다차원 배열 -->
+	<h1>다차원 배열</h1>
+	<script>
+		var arr = new Array(3); 		// 3개의 요소를 가지는 배열을 생성함.
+		for (var row = 0; row < 3; row++) {
+			arr[row] = new Array(4); 	// 각각의 요소마다 또다시 4개의 요소를 가지는 배열을 생성함.
+			for (var column = 0; column < 4; column++) {
+				arr[row][column] = "[" + row + "," + column + "]"; 	// 각각의 배열 요소를 생성함.
+				document.write(arr[row][column] + " "); 			// 각 배열 요소에 접근함.
+			}
+			document.write("<br>")
+		}
+	</script>
+	<!-- 배열여부확인 -->
+	<h1>Array.isArray() 메소드</h1>
+	<script>
+		var arr = [1, true, "JavaScript"];				// 배열 생성
+		
+		document.write(Array.isArray(arr) + "<br>");	// true
+		document.write(Array.isArray("문자열"));		// false
+	</script>
+	<!-- constructor사용한 배열여부확인 -->
+	<h1>constructor 프로퍼티</h1>
+	<script>
+		function isArray(a) {
+			return a.constructor.toString().indexOf("Array") > -1;
+		}
+
+		var arr = [1, true, "JavaScript"];			// 배열 생성
+
+		document.write(arr.constructor + "<br>");	// constructor 프로퍼티의 값 출력
+		document.write(arr.constructor.toString() + "<br>");	// function Array() {[native code]}
+		document.write(arr.constructor.toString().indexOf("Array") + "<br>");	// 10
+		document.write(isArray(arr))				// true
+	</script>
 </body>
 </html>
