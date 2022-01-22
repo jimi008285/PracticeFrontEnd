@@ -229,5 +229,63 @@
 		var b = eval("y * 3");
 		document.write(a + "<br>" + b);
 	</script>
+	<!-- 객체의 개념 -->
+	<h1>객체의 개념</h1>
+	<script>
+		var cat = "나비"; // 일반적인 변수의 선언
+		// 객체도 많은 값을 가지는 변수의 하나임.
+		var kitty = { name: "나비", family: "코리안 숏 헤어", age: 1, weight: 0.1 };
+
+		document.write(cat + "<br>");
+		document.write(kitty.name);
+	</script>
+	<!-- 객체 이니셜라이저를 이용한 객체 생성 -->
+	<h1>객체 이니셜라이저를 이용한 객체 생성</h1>
+	<script>
+		var kitty = {
+			name: "나비",
+			family: "코리안 숏 헤어",
+			age: 1,
+			weight: 0.1
+		};
+		document.write("우리 집 새끼 고양이의 이름은 " 
+		+ kitty.name + "이고, 종은 " + kitty.family + "입니다.");
+	</script>
+	<!-- 생성자 함수를 이용한 객체 생성 -->
+	<h1>생성자 함수를 이용한 객체 생성</h1>
+	<script>
+		var day = new Date(); // new 연산자를 사용하여 Date 타입의 객체를 생성함.
+		document.write("올해는 " + day.getFullYear() + "년입니다.");
+	</script>
+	<!-- Object.create() 메소드를 이용한 객체 생성 -->
+	<h1>Object.create() 메소드를 이용한 객체 생성</h1>
+	<script>
+		var obj = Object.create(null, {				// null 프로토타입을 사용하여 새로운 객체를 만들고
+            x: { value: 100, enumerable: true },	// x좌표를 나타내는 열거할 수 있는 속성과
+            y: { value: 200, enumerable: true }		// y좌표를 나타내는 열거할 수 있는 속성을 추가함.
+        });
+
+		document.write(obj.x + "<br/>");			// x좌표
+		document.write(obj.y + "<br/>");			// y좌표
+		document.write(Object.getPrototypeOf(obj));	// 객체의 프로토타입을 반환해 줌.
+	</script>
+	<!-- prototype 속성을 이용한 프로퍼티 및 메소드 추가 -->
+	<h1>prototype 속성을 이용한 프로퍼티 및 메소드 추가</h1>
+	<script>
+		function Dog(color, name, age) {
+			this.color = color;
+			this.name = name;
+			this.age = age;
+		}
+		// 현재 존재하고 있는 Dog 프로토타입에 family 프로퍼티를 추가함.
+		Dog.prototype.family = "시베리안 허스키"; 
+		 // 현재 존재하고 있는 Dog 프로토타입에 breed 메소드를 추가함.
+		Dog.prototype.breed = function() { return this.color + " " + this.family; };
+		var myDog = new Dog("흰색", "마루", 1);
+		var hisDog = new Dog("갈색", "콩이", 3);
+		document.write("우리 집 강아지는 " + myDog.family + "이고, 친구네 집 강아지도 " + hisDog.family + "입니다.<br>");
+		document.write("우리 집 강아지의 품종은 " + myDog.breed() + "입니다.<br>");
+		document.write("친구네 집 강아지의 품종은 " + hisDog.breed() + "입니다.");
+	</script>
 </body>
 </html>
