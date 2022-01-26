@@ -483,6 +483,99 @@
 		function changeBlackColor() {
 			str.style.color = "black";				// 해당 요소의 글자색을 검정색으로 변경함.
 		}
+		</script>
+	<!-- nodeName 프로퍼티 -->
+	<h1>nodeName 프로퍼티</h1>
+	<p id="document"></p>
+	<p id="html"></p>
+	<script>
+		// HTML 문서의 모든 자식 노드 중에서 두 번째 노드의 이름을 선택함.
+		document.getElementById("document").innerHTML = document.childNodes[1].nodeName;			// HTML
+		
+		// html 노드의 모든 자식 노드 중에서 첫 번째 노드의 이름을 선택함.
+		document.getElementById("html").innerHTML = document.childNodes[1].childNodes[0].nodeName;	// HEAD
+	</script>
+	<!-- nodeValue 프로퍼티 -->
+	<h1 id="heading">nodeValue 프로퍼티</h1>
+	<p id="text1">텍스트</p>
+	<p id="text2">텍스트</p>
+	<script>
+		// 아이디가 "heading"인 요소의 첫 번째 자식 노드의 노드값을 선택함.
+		var headingText = document.getElementById("heading").firstChild.nodeValue;
+		document.getElementById("text1").innerHTML = headingText;
+		document.getElementById("text2").firstChild.nodeValue = headingText;
+	</script>
+	<!-- 빈 텍스트 노드의 처리 -->
+	<h1>빈 텍스트 노드의 처리</h1>
+	<div id="parentNode">
+		<p><span>첫 번째 단락</span> 입니다.</p>
+		<p>두 번째 단락 입니다.</p>
+	</div>
+	<button onclick="printLastChild()">마지막 자식 노드 찾기!</button>
+	<p id="nodename"></p>
+	<script>
+		var lastNode;
+		function findLastChild(parentNode) {
+			lastNode = parentNode.lastChild;
+			while (lastNode.nodeType != 1) {
+				lastNode = lastNode.previousSibling;
+			}
+		}
+		function printLastChild() {
+			var parentNode = document.getElementById("parentNode");
+			findLastChild(parentNode);
+			document.getElementById("nodename").innerHTML = lastNode.nodeName;
+		}
+	</script>
+	<!-- 노드 리스트 -->
+	<h1>노드 리스트</h1>
+	<ul id="list">
+		<li>첫 번째 아이템이에요!</li>
+		<li>두 번째 아이템이에요!</li>
+		<li>세 번째 아이템이에요!</li>
+	</ul>
+	<script>
+		// 아이디가 "list"인 요소의 모든 자식 노드들을 선택함.
+		var listItems = document.getElementById("list").childNodes;
+		// 자식 노드들 중 첫 번째 li 요소의 내용을 변경함.
+		listItems[1].firstChild.nodeValue = "HTML 요소의 내용을 변경했어요!";
+	</script>
+	<!-- 노드 리스트의 텍스트 노드 -->
+	<h1>노드 리스트의 텍스트 노드</h1>
+	<ul id="list">ul 요소 다음의 텍스트
+		<li>첫 번째 아이템이에요!</li>첫 번째 li 요소 다음의 텍스트
+		<li>두 번째 아이템이에요!</li>두 번째 li 요소 다음의 텍스트
+		<li>세 번째 아이템이에요!</li>세 번째 li 요소 다음의 텍스트
+	</ul>
+	<script>
+		// 아이디가 "list"인 요소의 모든 자식 노드들을 선택함.
+		var listItems = document.getElementById("list").childNodes;
+		// 자식 노드들 중 첫 번째 노드의 값을 출력함.
+		document.write(listItems[0].nodeValue + "<br>");
+		// 자식 노드들 중 두 번째 노드의 자식 노드 중 첫 번째 노드의 값을 출력함.
+		document.write(listItems[1].firstChild.nodeValue + "<br>");
+		// 자식 노드들 중 세 번째 노드의 값을 출력함.
+		document.write(listItems[2].nodeValue);
+	</script>
+	<!-- 노드 리스트의 length 속성 -->
+	<h1>노드 리스트의 length 속성</h1>
+	<ul id="list">
+		<li>첫 번째 아이템이에요!</li>
+		<li>두 번째 아이템이에요!</li>
+		<li>세 번째 아이템이에요!</li>
+	</ul>
+	<p id="text"></p>
+	<button onclick="changeTextColor()">글자색 변경!</button>
+	<script>
+		var listItems = document.getElementsByTagName("li");	// 모든 <li> 요소들을 선택함.
+		document.getElementById("text").innerHTML = 
+			"이 노드 리스트의 길이는 " + listItems.length + "개 입니다.<br>";	// 모든 자식 노드들의 개수를 반환함.
+
+		function changeTextColor() {
+			for (var i = 0; i < listItems.length; i++) {
+			listItems[i].style.color = "orange";	// 모든 자식 노드들의 글자색을 변경함.
+			}
+		}
 	</script>
 </body>
 </html>
